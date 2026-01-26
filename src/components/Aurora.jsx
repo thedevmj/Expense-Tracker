@@ -1,3 +1,4 @@
+
 import { Renderer, Program, Mesh, Color, Triangle } from 'ogl';
 import { useEffect, useRef } from 'react';
 
@@ -200,3 +201,4 @@ export default function Aurora(props) {
 
   return <div ref={ctnDom} className="aurora-container" />;
 }
+

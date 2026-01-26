@@ -33,7 +33,11 @@ export default function TrackDisplay({ expenses }) {
           </thead>
 
           <tbody>
-            {expenses.map((exp) => (
+
+
+
+            {
+           filterExpenses.map((exp) => (
               <tr key={exp.id}>
                 <td>{exp.date}</td>
                 <td>{exp.title}</td>
