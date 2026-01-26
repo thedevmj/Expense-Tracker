@@ -1,0 +1,143 @@
+
+html, body, #root {
+  min-height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  
+
+}
+.navbar{
+     position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #608dcc;
+  color: rgb(129, 236, 173);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+/* font */
+.gravitas-one-regular {
+  font-family: "Gravitas One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.page-content {
+  margin-top: 60px;
+  padding-top: 80px;
+}
+.expense-card {
+   background: hsl(251, 61%, 58%);
+  color: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-left: 20px;
+  width:18rem;
+  display:flex;
+  flex-direction:column;
+  gap: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.expense-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+.expense-list {
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  align-items:start;
+}
+.expense-form {
+ 
+  max-width: 420px;
+  margin: 20px auto;
+  padding: 22px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #6953e3;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 8px 20px rgba(6, 6, 6, 0.08);
+}
+
+
+.app{
+    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.container{
+  
+  margin: 0 auto;
+}
+.aurora-container {
+  width: 100%;
+  height: 100%;
+ 
+}
+.footer {
+
+  width: 100rem;
+  padding: 80px 24px;
+  background: rgb(69, 49, 254); /* glass */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: white;
+  position:relative;
+  justify-items:center;
+
+ 
+
+}
+.page-wrapper {
+flex: 1;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+ 
+}
+
+/* Aurora background */
+.page-wrapper > :first-child {
+  position: fixed;       /* stays behind while scrolling */
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+
+}
+.content {
+  position: relative;
+  z-index: 1;            /* above aurora */
+
+  padding: 2rem;
+  padding-bottom: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.expense-card .card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+}
