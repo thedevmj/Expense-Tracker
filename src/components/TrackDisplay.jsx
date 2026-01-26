@@ -7,7 +7,7 @@ export default function TrackDisplay({ expenses }) {
   const [selectedDate, setselectedDate] = useState(dayjs());
 
   const filterExpenses = useMemo(() => {
-    return expenses.filter(exp => 
+    return expenses.filter (exp => 
      exp.date === selectedDate.format("DD-MM-YYYY")
   );
   }, [expenses, selectedDate]);
