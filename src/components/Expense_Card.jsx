@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 
 
@@ -98,4 +99,5 @@ export default function Expense_Card({ expenses, onDelete, onUpdate }) {
     )}
   </div>
 );
+
 }
