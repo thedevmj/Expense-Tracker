@@ -2,6 +2,7 @@ import React, { useMemo, useState } from "react";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import BasicDatePicker from "./Picker";
+import "./trackdisplay.css"
 
 dayjs.extend(customParseFormat);
 

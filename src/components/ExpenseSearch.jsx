@@ -46,8 +46,7 @@ export default function ExpenseSearch({ expenses }) {
         return expenses;
     }
   }, [expenses, sortBy]);
- console.log(sortExpenses);
- 
+  
   return (
     <div className="content" style={{ padding: "3rem" }}>
       <SortSelector value={selectedOption} onChange={(option)=>setSortBy(option.value)} />

@@ -1,0 +1,29 @@
+/* Outer wrapper: controls overall spacing */
+.trackdisplay-wrapper {
+  max-width: 1100px;       /* constrain width */
+  margin: 0 auto;          /* center horizontally */
+  padding: 16px;           /* optional horizontal padding */
+}
+
+/* Content: glass panel with blur */
+.content {
+  width: 100%;
+  margin: 24px 0;          /* vertical spacing only */
+  padding: 28px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25),
+              inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* Table wrapper: optional, for extra blur/frosted effect */
+.table-wrapper {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 12px;
+  overflow: hidden;
+}

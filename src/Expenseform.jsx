@@ -40,20 +40,17 @@ export default function Expense_home({ onAddExpense }) {
   return (
     <div>
       <form onSubmit={handlesubmit}>
-        <Navbar />
         <div className="page-content">
           <div className="expense-form">
             <h1
               style={{
-                fontFamily: "Gravitas One",
-                fontSize: "38px",
-                WebkitTextStroke: "2px white",
+                fontFamily: "Gravitas One"
               }}
             >
               Add Expense
             </h1>
 
-            <p>Titile: </p>
+            <p>Title : </p>
             <input
               type="text"
               ref={inputRef}
@@ -63,14 +60,14 @@ export default function Expense_home({ onAddExpense }) {
                 settitle(e.target.value);
               }}
             />
-            <p>Category:</p>
+            <p>Category :</p>
             <input
               type="text"
               placeholder="Enter category"
               value={category}
               onChange={(e) => setcategory(e.target.value)}
             />
-            <p>Amount:</p>
+            <p>Amount :</p>
             <input
               type="text"
               placeholder="Enter Amount spend"

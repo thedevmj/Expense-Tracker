@@ -1,4 +1,7 @@
-
+:root {
+  --nav-height: 60px;
+  --footer-height: 160px;
+}
 
 html, body, #root {
   min-height: 100%;
@@ -7,23 +10,25 @@ html, body, #root {
   
 
 }
-.navbar{
-     position: fixed;
+.navbar {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
-  background-color: #608dcc;
-  color: rgb(129, 236, 173);
-
+  height: var(--nav-height);
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding: 0 20px;
-  z-index: 1000;
-}
+  background: rgba(156, 108, 245, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+
+  color: rgb(129, 236, 173);
+}
 /* font */
 .gravitas-one-regular {
   font-family: "Gravitas One", serif;
@@ -33,26 +38,45 @@ html, body, #root {
 
 
 .page-content {
-  margin-top: 60px;
-  padding-top: 80px;
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
+
 .expense-card {
-   background: hsl(251, 61%, 58%);
+  background: rgba(128, 66, 251, 0.534); /* semi-transparent version of your purple */
   color: white;
   border-radius: 16px;
   padding: 20px;
   margin-left: 20px;
-  width:18rem;
-  display:flex;
-  flex-direction:column;
+  width: 18rem;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .expense-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
 }
+
+
+.expense-card .card {
+  background: rgba(234, 235, 240, 0.419); /* subtle translucent layer */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 6px;
+}
+
 .expense-list {
   display: flex;
   flex-wrap: wrap;
@@ -61,28 +85,63 @@ html, body, #root {
   align-items:start;
 }
 .expense-form {
- 
+  width: 100%;
   max-width: 420px;
-  margin: 20px auto;
-  padding: 22px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  background: #6953e3;
-  border-radius: 14px;
+  padding: 18px;
+
+  position: relative; /* normal flow */
+
+  background: rgba(105, 83, 227, 0.22);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  box-shadow: 0 8px 20px rgba(6, 6, 6, 0.08);
+  gap: 8px;
+    transition: box-shadow 0.25s ease, border 0.25s ease;
+}
+.expense-form:hover {
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
+/* Inputs & button styling */
+.expense-form input,
+.expense-form button {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+}
 
-.app{
-    min-height: 100vh;
+.expense-form input {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  backdrop-filter: blur(6px);
+}
+
+.expense-form button {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.expense-form button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.app {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-
 }
 
 .container{
@@ -117,9 +176,9 @@ flex: 1;
  
 }
 
-/* Aurora background */
+
 .page-wrapper > :first-child {
-  position: fixed;       /* stays behind while scrolling */
+  position: fixed;      
   inset: 0;
   width: 100%;
   height: 100%;
@@ -129,7 +188,7 @@ flex: 1;
 .content {
   position: relative;
   z-index: 1;            /* above aurora */
-
+  color: rgb(0, 0, 0);
   padding: 2rem;
   padding-bottom: 140px;
   display: flex;
@@ -137,9 +196,3 @@ flex: 1;
   gap: 1rem;
 }
 
-.expense-card .card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-
-}
