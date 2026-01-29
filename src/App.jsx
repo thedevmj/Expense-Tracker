@@ -6,7 +6,7 @@ import "./styles.css";
 import Navbar from "./components/Navbar";
 import { Footer } from "./Footer";
 import Aurora from "./components/Aurora";
-import TrackDisplay from "./components/TrackDisplay";
+import ExpenseSearch from "./components/ExpenseSearch";
 
 
 
@@ -71,14 +71,15 @@ function App() {
                 path="/"
                 element={<Expense_home onAddExpense={addExpense} />}
               />
-              <Route path="/Track_expense" element={<TrackDisplay expenses={expenses}/>}></Route>
-            </Routes>
+              <Route path="/Track_expense" element={<ExpenseSearch expenses={expenses}/>}></Route>
+             </Routes>
           </div>
          
           </div>
+          
       </div>
-
       <Footer />
+      
     </>
   );
 }

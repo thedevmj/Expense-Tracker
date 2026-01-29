@@ -1,27 +1,32 @@
 import React, { useMemo, useState } from "react";
-import BasicDatePicker from "./Picker";
 import dayjs from "dayjs";
-import ExpenseSearch from "./ExpenseSearch";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+import BasicDatePicker from "./Picker";
+
+dayjs.extend(customParseFormat);
 
 export default function TrackDisplay({ expenses }) {
-  const [selectedDate, setselectedDate] = useState(dayjs());
-
-  const filterExpenses = useMemo(() => {
-    return expenses.filter (exp => 
-     exp.date === selectedDate.format("DD-MM-YYYY")
-  );
+  
+  const [selectedDate, setSelectedDate] = useState(null);
+  
+  
+  const filteredExpenses = useMemo(() => {
+   if(!selectedDate) return expenses;
+    return expenses.filter(
+      (exp) => exp.date === selectedDate.format("DD-MM-YYYY"),
+    );
   }, [expenses, selectedDate]);
 
-  const total = filterExpenses.reduce((sum, exp) => sum + exp.amount, 0);
-
-  console.log(filterExpenses);
+  const total = filteredExpenses.reduce((sum, exp) => sum + exp.amount, 0);
 
   return (
     <div className="content">
-      <BasicDatePicker value={selectedDate} onChange={setselectedDate} />
-
-      <p>{selectedDate.format("DD-MM-YYYY")}</p>
-      {
+  
+      <BasicDatePicker value={selectedDate} onChange={setSelectedDate} />
+      
+      {filteredExpenses.length === 0 ? (
+        <p>No expenses for this date</p>
+      ) : (
         <table className="table table-sm">
           <thead>
             <tr>
@@ -33,11 +38,7 @@ export default function TrackDisplay({ expenses }) {
           </thead>
 
           <tbody>
-
-
-
-            {
-           filterExpenses.map((exp) => (
+            {filteredExpenses.map((exp) => (
               <tr key={exp.id}>
                 <td>{exp.date}</td>
                 <td>{exp.title}</td>
@@ -45,6 +46,7 @@ export default function TrackDisplay({ expenses }) {
                 <td>₹{exp.amount}</td>
               </tr>
             ))}
+
             <tr>
               <td colSpan="3">
                 <strong>Total Expense</strong>
@@ -53,7 +55,7 @@ export default function TrackDisplay({ expenses }) {
             </tr>
           </tbody>
         </table>
-      }
+      )}
     </div>
   );
 }
