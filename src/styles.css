@@ -196,3 +196,39 @@ flex: 1;
   gap: 1rem;
 }
 
+.glass-select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+
+  background: rgba(39, 38, 38, 0.207);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: white;
+  font-size: 15px;
+
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover */
+.glass-select:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Focus */
+.glass-select:focus {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
+}
+
+/* Options (limited styling due to browser limits) */
+.glass-select option {
+  background: #4c3fbf; /* solid for readability */
+  color: white;
+}
+

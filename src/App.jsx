@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import { Footer } from "./Footer";
 import Aurora from "./components/Aurora";
 import ExpenseSearch from "./components/ExpenseSearch";
+import Getmonthly_insight from "./components/Getmonthly_insight";
 
 
 
@@ -69,7 +70,9 @@ function App() {
               />
               <Route
                 path="/"
-                element={<Expense_home onAddExpense={addExpense} />}
+                element={<><Expense_home onAddExpense={addExpense} />
+                <Getmonthly_insight expense={expenses}/>
+                 </>}
               />
               <Route path="/Track_expense" element={<ExpenseSearch expenses={expenses}/>}></Route>
              </Routes>
