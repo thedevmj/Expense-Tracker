@@ -8,6 +8,7 @@ import { Footer } from "./Footer";
 import Aurora from "./components/Aurora";
 import ExpenseSearch from "./components/ExpenseSearch";
 import Getmonthly_insight from "./components/Getmonthly_insight";
+import Budget from "./components/Budget";
 
 
 
@@ -60,17 +61,23 @@ function App() {
             <Routes>
               <Route
                 path="/expense"
-                element={
+                element={<>
+               
+                <Getmonthly_insight expense={expenses}/>
+               
                   <Expense
                     expenses={expenses}
                     onDelete={deleteByid}
                     onUpdate={updateExpense}
                   />
+                   </>
                 }
               />
+              <Route path="/budget" element={ <Budget expenses={expenses}/>}></Route>
               <Route
                 path="/"
-                element={<><Expense_home onAddExpense={addExpense} />
+                element={<>
+                <Expense_home onAddExpense={addExpense} />
                 <Getmonthly_insight expense={expenses}/>
                  </>}
               />

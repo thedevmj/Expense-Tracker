@@ -117,12 +117,14 @@ html, body, #root {
   border: none;
   outline: none;
   font-size: 15px;
+  color: white;
+ 
 }
 
 .expense-form input {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+  background: rgba(39, 38, 38, 0.207);
   backdrop-filter: blur(6px);
+  color: rgb(255, 255, 255);
 }
 
 .expense-form button {

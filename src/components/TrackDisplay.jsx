@@ -25,8 +25,10 @@ export default function TrackDisplay({ expenses }) {
   
       <BasicDatePicker value={selectedDate} onChange={setSelectedDate} />
       
-      {filteredExpenses.length === 0 ? (
-        <p>No expenses for this date</p>
+      {
+
+      filteredExpenses.length === 0 && selectedDate === null ? (
+        <p>No expenses saved yet </p>
       ) : (
         <table className="table table-sm">
           <thead>
@@ -39,7 +41,11 @@ export default function TrackDisplay({ expenses }) {
           </thead>
 
           <tbody>
-            {filteredExpenses.map((exp) => (
+
+            {
+           
+
+            filteredExpenses.map((exp) => (
               <tr key={exp.id}>
                 <td>{exp.date}</td>
                 <td>{exp.title}</td>

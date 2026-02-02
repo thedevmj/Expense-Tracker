@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import dayjs from "dayjs";
+import Getmonthly_insight from "./components/Getmonthly_insight";
 
 export default function Expense_home({ onAddExpense }) {
   const Default_categories = [
@@ -20,16 +21,13 @@ export default function Expense_home({ onAddExpense }) {
 
   const inputRef = useRef(null);
 
-  // LOAD categories ONCE
+  // LOADINg categories ONCE
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("categories"));
     if (stored && stored.length > 0) {
       setcategories(stored);
     } else {
-      localStorage.setItem(
-        "categories",
-        JSON.stringify(Default_categories)
-      );
+      localStorage.setItem("categories", JSON.stringify(Default_categories));
       setcategories(Default_categories);
     }
   }, []);
@@ -38,7 +36,7 @@ export default function Expense_home({ onAddExpense }) {
     if (!newcategory.trim()) return;
 
     const exists = categories.some(
-      (cat) => cat.name.toLowerCase() === newcategory.toLowerCase()
+      (cat) => cat.name.toLowerCase() === newcategory.toLowerCase(),
     );
     if (exists) return;
 
@@ -50,10 +48,7 @@ export default function Expense_home({ onAddExpense }) {
     const updatedCategories = [...categories, categoryobject];
 
     setcategories(updatedCategories);
-    localStorage.setItem(
-      "categories",
-      JSON.stringify(updatedCategories)
-    );
+    localStorage.setItem("categories", JSON.stringify(updatedCategories));
 
     setnewcategory("");
     setshowcategory(false);
@@ -70,7 +65,7 @@ export default function Expense_home({ onAddExpense }) {
     const newexpense = {
       id: crypto.randomUUID(),
       date: dayjs().format("DD-MM-YYYY"),
-      category:category,
+      category: category.toLocaleUpperCase(),
       title,
       amount: parseFloat(amount),
     };
@@ -88,9 +83,7 @@ export default function Expense_home({ onAddExpense }) {
       <form onSubmit={handlesubmit}>
         <div className="page-content">
           <div className="expense-form">
-            <h1 style={{ fontFamily: "Gravitas One" }}>
-              Add Expense
-            </h1>
+            <h1 style={{ fontFamily: "Gravitas One" }}>Add Expense</h1>
 
             <p>Title : </p>
             <input

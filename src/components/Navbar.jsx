@@ -20,7 +20,9 @@ export default function Navbar() {
                 Track Expense
               </a>
             </li>
-
+             <li>
+              <a className="nav-link active" href="/budget">Budget</a>
+             </li>
             <li className="nav-item">
               <a className="nav-link active" href="/expense">
                 Expense
