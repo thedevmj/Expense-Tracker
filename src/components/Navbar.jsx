@@ -2,7 +2,7 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg glass-navbar">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">Expense</a>
+        <a className="navbar-brand" href="/">Expense</a>
 
         <button
           className="navbar-toggler"

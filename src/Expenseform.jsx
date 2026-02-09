@@ -65,7 +65,7 @@ export default function Expense_home({ onAddExpense }) {
     const newexpense = {
       id: crypto.randomUUID(),
       date: dayjs().format("DD-MM-YYYY"),
-      category: category.toLocaleUpperCase(),
+      category: category.toLowerCase(),
       title,
       amount: parseFloat(amount),
     };

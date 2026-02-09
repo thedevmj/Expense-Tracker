@@ -159,7 +159,7 @@ html, body, #root {
 
   width: 100rem;
   padding: 80px 24px;
-  background: rgb(69, 49, 254); /* glass */
+  background: rgba(70, 49, 254, 0.541); /* glass */
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   color: white;
@@ -178,7 +178,18 @@ flex: 1;
  
 }
 
-
+.budget-bar{
+  align-items: center;
+  
+  margin: 60px;
+  margin-bottom: 10px;
+  position:relative;
+  background:rgba(175, 102, 243, 0.314);
+   backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 20px ;
+  
+}
 .page-wrapper > :first-child {
   position: fixed;      
   inset: 0;

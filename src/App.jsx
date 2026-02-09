@@ -9,6 +9,8 @@ import Aurora from "./components/Aurora";
 import ExpenseSearch from "./components/ExpenseSearch";
 import Getmonthly_insight from "./components/Getmonthly_insight";
 import Budget from "./components/Budget";
+import { ToastContainer } from "react-toastify";
+import Budget_Bar from "./components/Budget_Bar";
 
 
 
@@ -49,7 +51,8 @@ function App() {
         <Navbar />
 
         
-        
+        <Getmonthly_insight/>
+                
         <div className="page-wrapper">
           <Aurora
             colorStops={["#7cff67", "#B19EEF", "#5227FF"]}
@@ -73,10 +76,13 @@ function App() {
                    </>
                 }
               />
-              <Route path="/budget" element={ <Budget expenses={expenses}/>}></Route>
+              <Route path="/budget" element={<> 
+                <Budget expenses={expenses}/>
+              </>}></Route>
               <Route
                 path="/"
                 element={<>
+                
                 <Expense_home onAddExpense={addExpense} />
                 <Getmonthly_insight expense={expenses}/>
                  </>}
@@ -88,6 +94,7 @@ function App() {
           </div>
           
       </div>
+      <ToastContainer position="top-right"/>
       <Footer />
       
     </>
